@@ -118,7 +118,8 @@ public class ReadData{
         double[][] xy = getColumns(7,9);
         double[][] xyStd = standardUnits(xy);
         double correlation = correlation(xyStd);
-        double slope = correlation * stdDeviation(xy)[1] / stdDeviation(xy)[0];
+        double[] xyStandDev = stdDeviation(xyStd);
+        double slope = correlation * xyStandDev[1]/xyStandDev[0];
         double[] means = mean(xy);
         double intercept = means[1] - slope * means[0];
         System.out.println("Correlation: " + correlation);
